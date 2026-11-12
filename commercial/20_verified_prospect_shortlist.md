@@ -32,19 +32,19 @@ Para garantir fidelidade aos dados públicos disponíveis, todas as informaçõe
 Após a exclusão da Lunarline (adquirida pela Motorola Solutions), restam 9 candidatas ativas para pesquisa de mercado, agrupadas por prioridade:
 
 ```
-+----+-----------------------------+-------------------+----------------------+----------+---------------------------------+
-| #  | Empresa                     | Sede Oficial      | Headcount (Estimado) | Priorid. | Canal Público Institucional     |
-+----+-----------------------------+-------------------+----------------------+----------+---------------------------------+
-| 01 | PUNCH Cyber Corp            | Reston / Ashburn, VA| ~30–50 FTE           | P1       | contact@punchcyber.com / Portal |
-| 02 | IT Availability LLC         | Vienna, VA        | ~10–49 FTE           | P1       | info@itavailability.com / Form  |
-| 03 | Tau Six, LLC                | Vienna, VA        | ~15–40 FTE           | P1       | info@tau-six.com / Teaming Form |
-| 04 | Quasars, Inc.               | Washington, DC    | ~30–50 FTE           | P1       | info@quasars-inc.com / Form     |
-| 05 | iSenpai                     | Columbia, MD      | ~30–50 FTE           | P1       | Formulário Web Institucional    |
-| 06 | SPN Solutions Inc.          | Fairfax, VA       | ~50–80 FTE           | P2       | info@spnsolutions.net / Form    |
-| 07 | ClearFocus Technologies     | Leesburg, VA      | ~50–90 FTE           | P2       | Portal de Parcerias Web         |
-| 08 | CyberSheath Services        | Reston, VA        | ~40–50 FTE           | P2       | Portal de Parcerias Web         |
-| 09 | GAI Cyber Solutions, LLC    | Leesburg, VA      | ~5–15 FTE            | P2       | info@gaicyber.com / Formulário  |
-+----+-----------------------------+-------------------+----------------------+----------+---------------------------------+
++----+-----------------------------+------------------------------------+----------------------+----------+---------------------------------+
+| #  | Empresa                     | Endereço(s) registrado(s)          | Headcount (Estimado) | Priorid. | Canal Público Institucional     |
++----+-----------------------------+------------------------------------+----------------------+----------+---------------------------------+
+| 01 | PUNCH Cyber Corp            | Reston (GSA) / Ashburn (SAM), VA   | ~30–50 FTE           | P1       | contact@punchcyber.com / Portal |
+| 02 | IT Availability LLC         | Vienna, VA                         | ~10–49 FTE           | P1       | info@itavailability.com / Form  |
+| 03 | Tau Six, LLC                | Vienna, VA                         | ~15–40 FTE           | P1       | info@tau-six.com / Teaming Form |
+| 04 | Quasars, Inc.               | Washington, DC                     | ~30–50 FTE           | P1       | info@quasars-inc.com / Form     |
+| 05 | iSenpai                     | Columbia, MD                       | ~30–50 FTE           | P1       | Formulário Web Institucional    |
+| 06 | SPN Solutions Inc.          | Fairfax, VA                        | ~50–80 FTE           | P2       | info@spnsolutions.net / Form    |
+| 07 | ClearFocus Technologies     | Leesburg, VA                       | ~50–90 FTE           | P2       | Portal de Parcerias Web         |
+| 08 | CyberSheath Services        | Reston, VA                         | ~40–50 FTE           | P2       | Portal de Parcerias Web         |
+| 09 | GAI Cyber Solutions, LLC    | Leesburg, VA                       | ~5–15 FTE            | P2       | info@gaicyber.com / Formulário  |
++----+-----------------------------+------------------------------------+----------------------+----------+---------------------------------+
 ```
 
 - **Prioridade 1 (P1 — 5 empresas):** Indicadores sólidos de aderência ao ICP (estimativa de 10 a 50 funcionários, foco em engenharia/cibersegurança e contratos ou parcerias federais comprovadas).
@@ -122,10 +122,10 @@ Após a exclusão da Lunarline (adquirida pela Motorola Solutions), restam 9 can
 
 ### Candidata 04: Quasars, Inc. (Prioridade P1)
 - **Site Oficial:** [quasars-inc.com](https://www.quasars-inc.com)
-- **Sede Oficial [CONFIRMADO]:** Washington, District of Columbia, EUA.
+- **Endereço Registrado [CONFIRMADO]:** Washington, District of Columbia, EUA.
 - **Identificadores Oficiais [CONFIRMADO]:**
-  - **UEI (Unique Entity ID):** `S5XLBEKB7161` (Conforme registro oficial no GSA eLibrary e SAM.gov).
-  - **CAGE Code:** `46DF9` (Conforme listagem oficial do GSA eLibrary e registros federais para a Quasars Inc.).
+  - **UEI (Unique Entity ID):** `S5XLBEKB7161` (Confirmado no GSA eLibrary e no SAM.gov).
+  - **CAGE Code:** `1MZ68` (Dado oficial de registro no SAM.gov associado ao UEI `S5XLBEKB7161` para QUASARS, INC.; o portal do GSA eLibrary confirma o UEI e o contrato, mas não apresenta o campo de CAGE).
   - **Registro SAM.gov:** Ativo.
   - **Classificações:** Small Disadvantaged Business (SDB), WOSB.
   - **Contrato Prime GSA MAS:** `47QTCA18D006V` (Ativo até 2028).
