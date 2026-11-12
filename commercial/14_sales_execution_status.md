@@ -1,122 +1,88 @@
-# SALES EXECUTION STATUS & JOURNEY READINESS — M6
+# STATUS DA OPERAÇÃO COMERCIAL & PRONTIDÃO DE JORNADA — M9.1
 
-**Document ID:** `COMM-DOC-014`  
-**Reference:** M6 Commercial Activation  
-**Target Market:** United States (B2B IT & Defense Contractors)  
-**Status:** Verification Completed / Ready for Production Authorization  
-**Environment:** Localhost & Automated Test Harness (Supabase Remote `ghqbqzljfpkjdrnuyddo` preserved untouched)
+**Identificador do Documento:** `COMM-DOC-014`  
+**Referência:** M9.1 Validação Comercial e Alinhamento Documental  
+**Mercado-Alvo:** Estados Unidos (Pequenas prestadoras de serviços de TI e cibersegurança governamental)  
+**Status Atual:** **Shortlist sob Validação Documental / Zero Abordagens Enviadas / Produto Sem Acesso Público em Produção**  
+**Ambiente de Execução:** Localhost & Bateria de Testes Automatizados (Supabase Remoto `ghqbqzljfpkjdrnuyddo` preservado intocado)
 
 ---
 
-## 1. END-TO-END COMMERCIAL JOURNEY VERIFICATION
+## 1. SITUAÇÃO REAL DA OPERAÇÃO COMERCIAL
 
-Every critical step of the prospect-to-paying-customer lifecycle was audited against the local codebase and automated test suite:
+1. **Shortlist em Validação Documental:** A lista de 10 potenciais clientes documentada em `commercial/20_verified_prospect_shortlist.md` constitui uma compilação de dados públicos (SAM.gov, GSA eLibrary e diretórios comerciais) sob escrutínio prévio. Não há relacionamento prévio estabelecido com nenhuma das empresas.
+2. **Nenhuma Abordagem Enviada:** **Zero mensagens, e-mails ou convites no LinkedIn foram disparados até o momento.** Qualquer template produzido permanece como minuta em arquivo.
+3. **Nenhum Cliente ou Interesse Confirmado:** Não existem clientes ativos, propostas em negociação ou intenções de compra registradas.
+4. **Produto Sem Acesso Público em Produção:** O BidReady não possui deploy em nuvem nem domínio público configurado. O sistema opera exclusivamente em ambiente local (`localhost:3000`) para desenvolvimento e verificação interna.
+5. **Funil Comercial Não Operacional em Produção:** O fluxo de aquisição e pagamento NÃO está aberto ao público externo. A prontidão verificada refere-se estritamente à integridade lógica do código e aos testes automatizados locais.
+6. **Bloqueios Administrativos Mantidos:** Paddle Live, deploy em produção, apontamento de DNS e contratação de serviços continuam estritamente bloqueados aguardando autorização formal.
+
+---
+
+## 2. VERIFICAÇÃO TÉCNICA DO FLUXO EM AMBIENTE LOCAL
+
+A tabela abaixo documenta o status de implementação de cada etapa lógica verificada nos testes locais, sem que isso represente disponibilidade em ambiente público de produção:
 
 ```
 +------------------------------------------------------------------------------------------------------------------+
-| PROSPECT TOUCHPOINT           | IMPLEMENTATION STATUS          | VERIFICATION RESULT & MECHANISM                 |
+| ETAPA DA JORNADA              | STATUS NO CÓDIGO (LOCAL)       | AMBIENTE & OBSERVAÇÃO TÉCNICA                   |
 +------------------------------------------------------------------------------------------------------------------+
-| 1. Landing Page Visit         | ✅ Fully Implemented (EN)      | http://localhost:3000                           |
-|                               |                                | Value prop targeted to US MSPs & contractors    |
+| 1. Visita à Página Inicial    | ✅ Implementado (EN)           | Localhost: http://localhost:3000                |
+|                               |                                | Sem deploy público; inacessível externamente.   |
 +------------------------------------------------------------------------------------------------------------------+
-| 2. Understand Value Prop      | ✅ Fully Implemented (EN)      | Explains citation engine, gap detection & triage|
-|                               |                                | Transparent limits (no OCR on flat scans)       |
+| 2. Apresentação da Proposta   | ✅ Implementado (EN)           | Localhost. Explica citações e rastreabilidade   |
+|                               |                                | sem garantias jurídicas ou promessas irreais.   |
 +------------------------------------------------------------------------------------------------------------------+
-| 3. Interactive Demonstration  | ✅ Fully Implemented (EN)      | http://localhost:3000/demo                      |
-|                               |                                | Fully self-service, clearly labeled synthetic   |
+| 3. Demonstração Interativa    | ✅ Implementado (EN)           | Localhost: http://localhost:3000/demo           |
+|                               |                                | Baseada em documento sintético local.           |
 +------------------------------------------------------------------------------------------------------------------+
-| 4. Self-Service Signup        | ✅ Fully Implemented           | http://localhost:3000/signup                    |
-|                               |                                | Instant provisioning of Free org (2 analyses)   |
-|                               |                                | Trigger: Non-blocking Welcome Email (Resend)    |
+| 4. Cadastro de Conta          | ✅ Implementado                | Localhost: http://localhost:3000/signup         |
+|                               |                                | Provisionamento do plano Free (2 análises/mês). |
 +------------------------------------------------------------------------------------------------------------------+
-| 5. Free Document Analysis     | ✅ Fully Implemented           | http://localhost:3000/upload                    |
-|                               |                                | PDF, DOCX, XLSX (max 50MB). Quota checked       |
-|                               |                                | Trigger: Analysis Completed + Quota Alert emails|
+| 5. Análise de Documentos      | ✅ Implementado                | Localhost: http://localhost:3000/upload         |
+|                               |                                | Suporta PDF, DOCX e XLSX (até 50MB, sem OCR).   |
 +------------------------------------------------------------------------------------------------------------------+
-| 6. Review Upgrade Tiers       | ✅ Fully Implemented (EN)      | http://localhost:3000/pricing                   |
-|                               |                                | Starter ($29/10), Pro ($69/40), Business ($149/120) |
+| 6. Tabela de Preços           | ✅ Implementado (EN)           | Localhost: http://localhost:3000/pricing        |
+|                               |                                | Starter ($29/10), Pro ($69/40), Business ($149) |
 +------------------------------------------------------------------------------------------------------------------+
-| 7. Paddle Checkout Activation | ✅ Fully Implemented           | /api/billing/checkout                           |
-|                               |                                | Price ID resolution, webhook verification,      |
-|                               |                                | instant automated tier upgrade without humans   |
+| 7. Checkout Paddle            | ✅ Implementado                | Integrado apenas ao Paddle Sandbox de testes.   |
+|                               |                                | Ambiente Live desativado por política.          |
 +------------------------------------------------------------------------------------------------------------------+
 ```
 
 ---
 
-## 2. BLOCKERS & ISSUES AUDITED
+## 3. PENDÊNCIAS E RESTRIÇÕES OPERACIONAIS (GATES)
 
-During the execution of this evaluation:
-
-### Identified Constraints (Non-Technical):
-1. **Live Paddle Credentials Not Activated:**  
-   The application is configured to operate in `PADDLE_ENV=sandbox`. If an external prospect from the United States attempts to pay right now, they would be routed to the Paddle Sandbox checkout (requiring test credit cards).
-   - *Status:* **Expected behavior during M6**. Live activation is explicitly gated pending owner authorization.
-2. **Domain & DNS Pending Setup:**  
-   The landing page and application currently run on `localhost`. To allow external US prospects to click links in emails or LinkedIn messages, the application must be deployed to a production domain (e.g., `bidready.io` or `bidready.com`).
-   - *Status:* **Gated**. Awaiting domain registration and Vercel project linking.
-3. **Email Sending in Production Mode:**  
-   Local tests and development run with Resend Mock Mode. In production, real email delivery requires a verified sending domain with SPF, DKIM, and DMARC DNS records configured.
-   - *Status:* **Gated**. Awaiting domain setup.
-
-### Software/Codebase Issues:
-- **Zero blocking code issues found.** All 24 static and dynamic routes compile cleanly (`npm run build`), all 13 M5.4 integration tests pass, and all 82 regression tests pass with 0 errors.
+### Restrições Operacionais Mantidas:
+1. **Credenciais Paddle Live Não Ativadas:**  
+   O sistema opera com `PADDLE_ENV=sandbox`. Nenhuma cobrança real pode ser processada.
+2. **Ausência de Domínio e Deploy em Nuvem:**  
+   A aplicação roda exclusivamente em máquina local. Nenhum prospect externo consegue acessar qualquer link ou página do produto.
+3. **Disparo de E-mails em Modo Mock:**  
+   O serviço de e-mails opera localmente em modo simulado (Mock Mode do Resend). Não há domínio de envio com registros SPF/DKIM/DMARC apontados.
+4. **Migration 8 Pendente no Banco Remoto:**  
+   A tabela `email_outbox` não foi aplicada no Supabase remoto (`ghqbqzljfpkjdrnuyddo`), prevenindo impactos no ambiente de banco hospedado.
 
 ---
 
-## 3. EXTERNAL DEPENDENCIES INVENTORY (OWNER ACTIONS)
+## 4. INVENTÁRIO DE DEPENDÊNCIAS DE LANÇAMENTO (AÇÕES DO PROPRIETÁRIO)
 
-To transition from local readiness to live commercial outreach in the United States, the project requires the following administrative approvals:
+Caso o proprietário do projeto decida futuramente avançar para o ambiente operacional de produção, serão necessárias as seguintes ações administrativas:
 
-| Dependency | Owner Action Required | Estimated Time | Cost Impact |
+| Dependência | Ação Exigida | Impacto Financeiro Estimado | Status Atual |
 | :--- | :--- | :--- | :--- |
-| **1. Domain Registration** | Purchase commercial domain (e.g., `bidready.ai`, `.io`, or `.com`) via Namecheap, Cloudflare, or Porkbun. | 15 minutes | ~US\$ 12.00 / year |
-| **2. Production Deploy** | Link GitHub repo to Vercel and assign the custom domain. | 20 minutes | US\$ 0 (validation) or US\$ 20/mo (Pro) |
-| **3. Resend Domain Verification** | Add TXT records (SPF, DKIM, DMARC) in domain DNS; generate production `RESEND_API_KEY`. | 20 minutes | US\$ 0 (Free tier up to 3,000 emails/mo) |
-| **4. Paddle Live Approval (KYC)** | Submit Brazilian legal company documents (CNPJ, Contrato Social, ID) in Paddle Dashboard to enable Live transactions. | 1 to 3 business days | US\$ 0 (Paddle charges % on transactions only) |
-| **5. Paddle Live Products** | Create the 3 plans in Paddle Live: Starter (\$29), Pro (\$69), Business (\$149) and set environment variables. | 15 minutes | US\$ 0 |
-| **6. USD Payout Account** | Add USD bank account details (Inter Global PJ, Husky/Nomad PJ, or Wise Business) to receive payout deposits. | 15 minutes | US\$ 0 |
+| **1. Registro de Domínio** | Compra de domínio comercial (ex.: `.io`, `.ai` ou `.com`). | ~US$ 12.00 / ano | 🛑 Bloqueado |
+| **2. Deploy em Produção** | Vinculação do repositório à Vercel e configuração do domínio. | US$ 0 (Hobby) / US$ 20/mês (Pro) | 🛑 Bloqueado |
+| **3. Configuração de DNS Resend** | Criação de registros DNS TXT (SPF, DKIM, DMARC) no domínio. | US$ 0 (Free até 3.000 envios/mês) | 🛑 Bloqueado |
+| **4. Aprovação Paddle Live (KYC)** | Envio de documentação PJ no painel Paddle para habilitar transações reais. | Sem custo inicial (% por transação) | 🛑 Bloqueado |
+| **5. Criação de Planos no Paddle Live** | Criação dos planos Starter ($29), Pro ($69) e Business ($149) e extração dos Price IDs. | US$ 0 | 🛑 Bloqueado |
+| **6. Aplicação da Migration 8** | Execução de `20261111000008_email_outbox.sql` no Supabase remoto. | US$ 0 | 🛑 Bloqueado |
 
 ---
 
-## 4. WHAT IS READY VS. WHAT REQUIRES AUTHORIZATION
+## 5. DOCUMENTOS DE REFERÊNCIA AUTORITATIVOS
 
-### Authoritative Prospect & Outreach Reference (Superseding Earlier Drafts):
-> [!IMPORTANT]
-> **Audit Update (2026-11-12):** The preliminary list in `commercial/12_first_10_prospects.md` was superseded following a thorough verification against SAM.gov, GSA eLibrary, and corporate registries. 6 of the 10 previous companies had headcounts exceeding 150–400+ employees and dedicated proposal departments outside BidReady's ICP ($29–$149/mo self-service SaaS).
->
-> The authoritative shortlist is now recorded in:
-> - **`commercial/20_verified_prospect_shortlist.md`**: 10 verified US small businesses (6 in Priority 1: 5–50 FTE; 4 in Priority 2: 50–90 FTE with small proposal setups) with active CAGE/UEI and federal vehicle citations.
-> - **`commercial/21_customer_discovery_outreach.md`**: Customer discovery scripts, 10–15 min qualitative interview questions, and outreach copy (English & Portuguese) with CAN-SPAM compliance criteria.
-
-### What is 100% Ready (Local & Tested):
-- ✅ Commercial directory of 10 verified US small business prospects with documented federal contracts/vehicles (`commercial/20_verified_prospect_shortlist.md`).
-- ✅ Customer discovery outreach messages, follow-up sequences, and interview guide (`commercial/21_customer_discovery_outreach.md`).
-- ✅ Objection handling guides for security, accuracy, and pricing.
-- ✅ Complete self-service acquisition funnel (Landing Page, Demo, Signup, Upload, Quotas, Pricing, Checkout).
-- ✅ Automated transactional emails with persistent idempotency and mock protection.
-- ✅ Automated customer portal for subscription cancellation, card update, and plan changes.
-
-### What is Gated (Requires Explicit Authorization):
-- 🛑 **Deploying the application to Vercel or cloud servers.**
-- 🛑 **Applying migrations to the remote Supabase database (`ghqbqzljfpkjdrnuyddo`).**
-- 🛑 **Purchasing domains or spending from the commercial budget.**
-- 🛑 **Submitting Paddle KYC or toggling `PADDLE_ENV=production`.**
-- 🛑 **Dispatching real emails or messages to the 10 prospects (zero messages sent to date).**
-
----
-
-## 5. RECOMMENDED NEXT STEPS (ROADMAP TO FIRST DOLLAR)
-
-Once the project owner authorizes moving into live production:
-
-1. **Step 1 — Domain & DNS Setup:**  
-   Register domain and configure DNS records for hosting and email sending.
-2. **Step 2 — Vercel Deployment & Environment Config:**  
-   Deploy production build, apply `20261111000008_email_outbox.sql` to Supabase, and configure production environment variables.
-3. **Step 3 — Paddle Live Verification & Price IDs:**  
-   Obtain Paddle Live approval and populate production `PADDLE_PRICE_*` variables.
-4. **Step 4 — Controlled Outreach Execution:**  
-   Dispatch the customer discovery outreach sequences prepared in `commercial/21_customer_discovery_outreach.md` to the 10 qualified leads in `commercial/20_verified_prospect_shortlist.md`.
-5. **Step 5 — Monitor First Conversions:**  
-   Track signups, free trial usage, and conversion to the first paying customers ($29 or $69/month) to validate willingness-to-pay.
+- **`commercial/20_verified_prospect_shortlist.md`:** Shortlist de 10 pequenas empresas americanas com contratos e veículos públicos auditados, com divisão clara entre dados confirmados em fontes oficiais e estimativas de mercado. Substitui e anula a lista preliminar `commercial/12_first_10_prospects.md`.
+- **`commercial/21_customer_discovery_outreach.md`:** Modelos de abordagem exclusiva para pesquisa de mercado (*customer discovery*), perguntas para entrevista qualitativa de 10–15 minutos e checklist de conformidade CAN-SPAM. Sem links de produção e sem promessas não comprovadas.
+- **Histórico Preservado:** Os arquivos preliminares `commercial/11`, `12` e `13` permanecem arquivados como histórico, mas não refletem a metodologia rigorosa aprovada no documento 20.
