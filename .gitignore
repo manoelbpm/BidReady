@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# audit & test artifacts
+screenshots*
+public/screenshots*
+tests/screenshots*
+.screenshots*
+scripts/*.json
+supabase/.temp/
+
