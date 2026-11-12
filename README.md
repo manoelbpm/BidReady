@@ -1,6 +1,6 @@
 # BidReady — Automated Proposal Intelligence & RFP Decomposition SaaS
 
-BidReady is a B2B SaaS platform engineered to ingest, decompose, and cross-reference procurement solicitations (RFPs, RFQs, SOWs, and commercial tenders) up to 30 MB in size. Built for government contractors, MSPs, and commercial proposal teams, BidReady extracts structured requirements, deliverable schedules, and cited compliance matrices directly from digital solicitation documents.
+BidReady is a B2B SaaS platform engineered to ingest, decompose, and cross-reference procurement solicitations (RFPs, RFQs, SOWs, and commercial tenders) up to 50 MB in size. Built for government contractors, MSPs, and commercial proposal teams, BidReady extracts structured requirements, deliverable schedules, and cited compliance matrices directly from digital solicitation documents.
 
 ---
 
@@ -9,10 +9,10 @@ BidReady is a B2B SaaS platform engineered to ingest, decompose, and cross-refer
 ### 1. AI Output Traceability & Human-in-the-Loop Requirement
 - **No Guaranteed Infallibility:** BidReady uses modern Large Language Models (LLMs) to accelerate document analysis. Like all generative AI systems, model outputs may contain inaccuracies, omissions, or misinterpretations.
 - **Traceability, Not Guarantees:** BidReady's deterministic citations (binding extracted requirements to exact page numbers, section headers, and verbatim quotes) and past performance matching are **verification and traceability mechanisms designed to assist human reviewers**—they do **not** constitute a guarantee of absolute accuracy or completeness.
-- **Mandatory Human Verification:** Every extracted clause, compliance determination, and proposal deliverable must be reviewed, verified, and approved by qualified human capture managers before submission. Semantic similarity scores indicate thematic relevance of company artifacts; they do **never** prove legal, technical, or regulatory compliance.
+- **Mandatory Human Verification:** Every extracted clause, compliance determination, and proposal deliverable must be reviewed, verified, and approved by qualified human capture managers before submission. Semantic similarity scores indicate thematic relevance of company artifacts; they never prove legal, technical, or regulatory compliance.
 
 ### 2. Supported Formats & OCR Limitations
-- **Supported Formats:** BidReady natively parses **PDF**, **DOCX**, and **XLSX** files up to **30 MB** with server-side magic-byte validation (`%PDF-`, `PK\x03\x04`).
+- **Supported Formats:** BidReady natively parses **PDF**, **DOCX**, and **XLSX** files up to **50 MB** with server-side magic-byte validation (`%PDF-`, `PK\x03\x04`).
 - **Absence of Optical Character Recognition (OCR):** BidReady processes digital, selectable text streams. **Scanned, image-only documents lacking an embedded text layer cannot be processed** and will be rejected with an explicit notification (`requiresOcr / unprocessable`). BidReady does **not** provide automated OCR for flattened raster scans.
 
 ### 3. Public & Unclassified Procurement Scope
