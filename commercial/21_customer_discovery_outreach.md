@@ -168,11 +168,11 @@ Hi {{first_name}},
 
 Thank you for getting back to me!
 
-I would appreciate hearing how your team approaches solicitation reviews. Would a quick 10–15 minute conversation via Zoom or Google Meet fit your schedule this week?
+I would appreciate hearing how your team approaches solicitation reviews. Would you have 10–15 minutes for a brief conversation via Zoom or Google Meet sometime this week or next?
 
-Here is my scheduling link: [Calendar Link - To be configured]
+Please let me know a day and time window that works best for you, and I will send over a calendar invite with the meeting link.
 
-If your schedule is tight or you prefer written feedback, I would also be glad to send over 3 brief questions directly by email.
+(Alternatively, if your schedule is tight and you prefer written feedback, I would also be glad to send over 3 brief questions directly by email.)
 
 Thank you again for your time and contribution to our research!
 
@@ -189,11 +189,11 @@ Olá {{first_name}},
 
 Muito obrigado pela resposta!
 
-Será muito útil conhecer como sua equipe conduz a análise de editais. Uma conversa rápida de 10 a 15 minutos via Zoom ou Google Meet caberia na sua agenda esta semana?
+Será muito útil conhecer como sua equipe conduz a análise de editais. Você teria 10 a 15 minutos para uma breve conversa via Zoom ou Google Meet em algum momento esta semana ou na próxima?
 
-Aqui está meu link de agendamento: [Link do Agendador - A configurar]
+Por favor, indique os dias e horários que melhor se adaptam à sua agenda, e enviarei o convite com o link da reunião diretamente por e-mail.
 
-Se sua agenda estiver muito cheia ou preferir responder por escrito, terei prazer em enviar 3 perguntas curtas diretamente por e-mail.
+(Caso sua agenda esteja muito corrida e prefira responder por escrito, terei prazer em enviar 3 perguntas curtas diretamente por e-mail.)
 
 Agradeço mais uma vez pelo tempo e por colaborar com nossa pesquisa!
 

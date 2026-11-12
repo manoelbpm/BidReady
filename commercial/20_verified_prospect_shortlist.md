@@ -35,7 +35,7 @@ Após a exclusão da Lunarline (adquirida pela Motorola Solutions), restam 9 can
 +----+-----------------------------+-------------------+----------------------+----------+---------------------------------+
 | #  | Empresa                     | Sede Oficial      | Headcount (Estimado) | Priorid. | Canal Público Institucional     |
 +----+-----------------------------+-------------------+----------------------+----------+---------------------------------+
-| 01 | PUNCH Cyber Corp            | Reston, VA        | ~30–50 FTE           | P1       | contact@punchcyber.com / Portal |
+| 01 | PUNCH Cyber Corp            | Reston / Ashburn, VA| ~30–50 FTE           | P1       | contact@punchcyber.com / Portal |
 | 02 | IT Availability LLC         | Vienna, VA        | ~10–49 FTE           | P1       | info@itavailability.com / Form  |
 | 03 | Tau Six, LLC                | Vienna, VA        | ~15–40 FTE           | P1       | info@tau-six.com / Teaming Form |
 | 04 | Quasars, Inc.               | Washington, DC    | ~30–50 FTE           | P1       | info@quasars-inc.com / Form     |
@@ -58,9 +58,11 @@ Após a exclusão da Lunarline (adquirida pela Motorola Solutions), restam 9 can
 
 ### Candidata 01: PUNCH Cyber Corp (Prioridade P1)
 - **Site Oficial:** [punchcyber.com](https://www.punchcyber.com)
-- **Sede Oficial [CONFIRMADO]:** Reston, Virginia, EUA (1818 Library St, Ste 500, Reston, VA 20190 — conforme registro no GSA eLibrary). Possui também instalações operacionais em Ashburn, VA.
+- **Endereços Registrados [CONFIRMADO]:**
+  - **Endereço no GSA eLibrary:** `11150 Sunset Hills Rd, Reston, VA 20190` (Endereço contratual cadastrado no contrato GSA MAS).
+  - **Endereço em Registros Federais / SAM:** `20319 Portsmouth Blvd, Ashburn, VA 20147` (Endereço físico associado ao registro federal).
 - **Identificadores Oficiais [CONFIRMADO]:**
-  - **CAGE Code:** `7T5V0`.
+  - **CAGE Code:** `5KGK2` (Associado ao UEI `H95DHH2NJ473` no SAM.gov e contratações federais; substitui o CAGE incorreto `7T5V0`).
   - **UEI (Unique Entity ID):** `H95DHH2NJ473`.
   - **Registro SAM.gov:** Ativo.
   - **Contrato Prime GSA MAS:** `GS-35F-323DA` — Categoria HACS (Highly Adaptive Cybersecurity Services).
@@ -122,7 +124,8 @@ Após a exclusão da Lunarline (adquirida pela Motorola Solutions), restam 9 can
 - **Site Oficial:** [quasars-inc.com](https://www.quasars-inc.com)
 - **Sede Oficial [CONFIRMADO]:** Washington, District of Columbia, EUA.
 - **Identificadores Oficiais [CONFIRMADO]:**
-  - **CAGE Code:** `46DF9`.
+  - **UEI (Unique Entity ID):** `S5XLBEKB7161` (Conforme registro oficial no GSA eLibrary e SAM.gov).
+  - **CAGE Code:** `46DF9` (Conforme listagem oficial do GSA eLibrary e registros federais para a Quasars Inc.).
   - **Registro SAM.gov:** Ativo.
   - **Classificações:** Small Disadvantaged Business (SDB), WOSB.
   - **Contrato Prime GSA MAS:** `47QTCA18D006V` (Ativo até 2028).
@@ -227,7 +230,7 @@ Todas as empresas descartadas durante a revisão documental encontram-se registr
 
 | Empresa Descartada | Sede | Porte Real / Situação Corporativa | Motivo do Descarte (Incompatibilidade com o ICP) | Fonte e Data da Consulta |
 | :--- | :--- | :--- | :--- | :--- |
-| **Lunarline, Inc.** | Arlington, VA | **Subsidiária de Grande Corporação** | **Adquirida pela Motorola Solutions** (conforme divulgado oficialmente em seu portal institucional: *"Lunarline, a Motorola Solutions Company"*). Não é uma pequena empresa independente; integra um conglomerado multinacional listado em bolsa (NYSE: MSI), dispondo de recursos corporativos e jurídicos de grande porte. Fora do ICP. | Portal Oficial Lunarline & Motorola Solutions (Novembro de 2026) |
+| **Lunarline, Inc.** | Ashburn, VA | **Subsidiária de Grande Corporação** | **Adquirida pela Motorola Solutions** (conforme divulgado oficialmente em seu portal institucional: *"Lunarline, a Motorola Solutions Company"*). Não é uma pequena empresa independente; integra um conglomerado multinacional listado em bolsa (NYSE: MSI), dispondo de recursos corporativos e jurídicos de grande porte. Fora do ICP. | Portal Oficial Lunarline & Motorola Solutions (Novembro de 2026) |
 | **Sentar, Inc.** | Huntsville, AL | **~300 a 400+ funcionários** | Empresa de médio/grande porte (ESOP), adquiriu a Waterfront Technical e foi investida pela QOMPLX. Possui equipe corporativa dedicada de propostas com ferramentas enterprise. | Tracxn & PitchBook (Novembro de 2026) |
 | **DirectViz Solutions (DVS)** | Chantilly, VA | **~200 a 300+ funcionários** | Grande contratada federal com centenas de postos em comandos do Exército e Marinha. Equipe corporativa de propostas. | LeadIQ & Diretórios Federais (Novembro de 2026) |
 | **RIVA Solutions** | McLean, VA | **~200 a 250+ funcionários** | Empresa em rápida expansão com dezenas de milhões em receita anual e departamento estruturado de capture/propostas. | Latka & Dados Corporativos (Novembro de 2026) |
