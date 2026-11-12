@@ -1,6 +1,6 @@
 # BidReady — Automated Proposal Intelligence & RFP Decomposition SaaS
 
-BidReady is an enterprise-grade B2B SaaS platform engineered to ingest, decompose, and cross-reference complex procurement solicitations (RFPs, RFQs, SOWs, and commercial tenders). Built for government contractors, MSPs, and commercial proposal teams, BidReady converts multi-hundred-page solicitation packages into structured requirements, deliverable schedules, and cited compliance matrices in minutes.
+BidReady is a B2B SaaS platform engineered to ingest, decompose, and cross-reference procurement solicitations (RFPs, RFQs, SOWs, and commercial tenders) up to 30 MB in size. Built for government contractors, MSPs, and commercial proposal teams, BidReady extracts structured requirements, deliverable schedules, and cited compliance matrices directly from digital solicitation documents.
 
 ---
 
@@ -27,18 +27,20 @@ BidReady is an enterprise-grade B2B SaaS platform engineered to ingest, decompos
 
 ## Technical Stack & Architecture
 
-| Layer | Technologies & Exact Versions | Purpose & Implementation |
+| Layer | Technologies & Declared Versions | Purpose & Implementation |
 | :--- | :--- | :--- |
 | **Framework** | **Next.js 16.4.6** (App Router, Turbopack) | Serverless API routes, server actions, and optimized client rendering. |
-| **Frontend UI** | **React 19.3.0**, **Tailwind CSS 4.3.3**, **Lucide React 1.71.0** | Modern responsive App Shell, interactive matrices, and compliance dashboards. |
-| **Language** | **TypeScript 5.7.3** (`tsc --noEmit` clean) | Strict end-to-end type safety across domain models, payloads, and repositories. |
-| **Database & Auth** | **Supabase** (`@supabase/supabase-js 2.119.0`, `@supabase/ssr 0.12.7`) | PostgreSQL 17 with Row-Level Security (RLS) and multi-tenant isolation. |
-| **Document Parsers** | **pdf-parse 2.4.5**, **mammoth 1.13.0**, **xlsx 0.18.5** | Provider-independent text extraction with coordinate and table preservation. |
-| **Schema Validation**| **Zod 4.6.7** | Runtime validation of LLM JSON outputs and API request payloads. |
+| **Frontend UI** | **React 19.3.0**, **Tailwind CSS 4.3.3**, **Lucide React** (`^1.71.0`) | Modern responsive App Shell, interactive matrices, and compliance dashboards. |
+| **Language** | **TypeScript** (`^5`) | Strict end-to-end type safety across domain models, payloads, and repositories. |
+| **Database & Auth** | **Supabase** (`@supabase/supabase-js ^2.119.0`, `@supabase/ssr ^0.12.7`) | PostgreSQL 17 with Row-Level Security (RLS) and multi-tenant isolation. |
+| **Document Parsers** | **pdf-parse** (`^2.4.5`), **mammoth** (`^1.13.0`), **xlsx** (`^0.18.5`) | Provider-independent text extraction with coordinate and table preservation. |
+| **Schema Validation**| **Zod** (`^4.6.7`) | Runtime validation of LLM JSON outputs and API request payloads. |
 | **AI Inference** | **Google Gemini Flash** (`gemini-2.5-flash`), Mock Provider | Provider-agnostic abstraction (`AIProvider`) with deterministic JSON schemas. |
 | **Billing & MoR** | **Paddle** (REST API, Paddle.js overlay, HMAC webhooks) | Merchant of Record subscription billing, dynamic price IDs, and Customer Portal. |
-| **Transactional Email**| **Resend 6.38.0** | Persistent email outbox with PostgreSQL row locking (`FOR UPDATE`) and idempotency. |
-| **Testing** | **Vitest 5.1.0** (27 test suites, 307 tests) | Multi-tenant isolation, billing security, webhook HMAC, and parser tests. |
+| **Transactional Email**| **Resend** (`^6.38.0`) | Transactional email integration (outbox persistence requires remote Migration 8). |
+| **Testing** | **Vitest** (`^5.1.0`) (27 test suites, 307 tests) | Multi-tenant isolation, billing security, webhook HMAC, and parser tests. |
+
+*> Note on dependencies: Pinned versions are shown where fixed in `package.json` (e.g. Next.js 16.4.6, React 19.3.0, Tailwind CSS 4.3.3); dependencies with semver range prefixes (`^`) reflect ranges declared in `package.json` and resolved in `package-lock.json`.*
 
 ---
 
@@ -64,10 +66,10 @@ Usage quotas are enforced at the PostgreSQL database level using atomic row-leve
 
 | Plan | Price | Monthly Document Analyses | Evidence Repository | Support Level |
 | :--- | :--- | :--- | :--- | :--- |
-| **Free Trial** | **$0 / mo** | **2 analyses / month** | Up to 5 artifacts (base seed) | Community / Documentation |
+| **Free** | **$0 / mo** | **2 analyses / month** | Up to 5 artifacts (base seed) | Community / Documentation |
 | **Starter** | **$29 / mo** | **10 analyses / month** | Unlimited artifacts | Standard Email Support |
-| **Pro** | **$69 / mo** | **40 analyses / month** | Unlimited artifacts | Priority Email Support (24h SLA) |
-| **Business** | **$149 / mo**| **120 analyses / month** | Unlimited artifacts | Multi-Seat Org Access & Onboarding |
+| **Pro** | **$69 / mo** | **40 analyses / month** | Unlimited artifacts | Priority email support, with a target response time of up to 24 business hours. This is not a resolution-time guarantee or contractual SLA. |
+| **Business** | **$149 / mo**| **120 analyses / month** | Unlimited artifacts | Multi-Seat Org Access & Standard Support |
 
 ### 5. Billing, Webhook Security & Customer Portal
 - Server-authoritative checkout intent generation (`create_checkout_intent` RPC).
@@ -77,7 +79,7 @@ Usage quotas are enforced at the PostgreSQL database level using atomic row-leve
 
 ### 6. Transactional Email Outbox & Idempotency
 - Official Resend SDK integration for 4 transactional events: `welcome`, `analysis_completed`, `quota_alert`, and `payment_receipt`.
-- Persistent `email_outbox_events` table with atomic claim locks (`claim_email_outbox_slot` RPC).
+- Persistent email outbox design with atomic claim locks (`claim_email_outbox_slot` RPC). **Important Notice:** Migration 8 (`20261111000008_email_outbox.sql`) is defined locally and has **NOT** yet been applied to the remote Supabase database. Consequently, database-level outbox persistence and persistent slot locking are **not** currently operational in the remote production environment until that migration is applied.
 - Strict production protection: `RESEND_MOCK_MODE=true` is forbidden in production, and mock keys produce explicit operational errors without false successes.
 - All email deliveries are 100% non-blocking; provider outages never interrupt payments or document processing.
 
@@ -101,7 +103,7 @@ supabase/migrations/
 
 ### Remote vs. Local Migration Status:
 - **Migrations 1 to 7 (`20261110000001` through `20261111000007`):** Fully applied and active on the remote Supabase production/staging database (`ghqbqzljfpkjdrnuyddo`, PostgreSQL 17).
-- **Migration 8 (`20261111000008_email_outbox.sql`):** Defined and tested locally; queued to be applied to the remote Supabase database during the production deployment gate.
+- **Migration 8 (`20261111000008_email_outbox.sql`):** Defined in the local repository; **NOT applied to the remote Supabase database**. Outbox persistence, delivery state auditing, and PostgreSQL slot claim locks in production depend on applying this migration during the production deployment window. It is currently **not** operational on the remote environment.
 
 ---
 
