@@ -30,7 +30,7 @@ Every critical step of the prospect-to-paying-customer lifecycle was audited aga
 |                               |                                | Trigger: Non-blocking Welcome Email (Resend)    |
 +------------------------------------------------------------------------------------------------------------------+
 | 5. Free Document Analysis     | ✅ Fully Implemented           | http://localhost:3000/upload                    |
-|                               |                                | PDF, DOCX, XLSX (max 30MB). Quota checked       |
+|                               |                                | PDF, DOCX, XLSX (max 50MB). Quota checked       |
 |                               |                                | Trigger: Analysis Completed + Quota Alert emails|
 +------------------------------------------------------------------------------------------------------------------+
 | 6. Review Upgrade Tiers       | ✅ Fully Implemented (EN)      | http://localhost:3000/pricing                   |
@@ -81,9 +81,17 @@ To transition from local readiness to live commercial outreach in the United Sta
 
 ## 4. WHAT IS READY VS. WHAT REQUIRES AUTHORIZATION
 
+### Authoritative Prospect & Outreach Reference (Superseding Earlier Drafts):
+> [!IMPORTANT]
+> **Audit Update (2026-11-12):** The preliminary list in `commercial/12_first_10_prospects.md` was superseded following a thorough verification against SAM.gov, GSA eLibrary, and corporate registries. 6 of the 10 previous companies had headcounts exceeding 150–400+ employees and dedicated proposal departments outside BidReady's ICP ($29–$149/mo self-service SaaS).
+>
+> The authoritative shortlist is now recorded in:
+> - **`commercial/20_verified_prospect_shortlist.md`**: 10 verified US small businesses (6 in Priority 1: 5–50 FTE; 4 in Priority 2: 50–90 FTE with small proposal setups) with active CAGE/UEI and federal vehicle citations.
+> - **`commercial/21_customer_discovery_outreach.md`**: Customer discovery scripts, 10–15 min qualitative interview questions, and outreach copy (English & Portuguese) with CAN-SPAM compliance criteria.
+
 ### What is 100% Ready (Local & Tested):
-- ✅ Commercial directory of 10 prioritized US prospects with public contract citations (`commercial/12_first_10_prospects.md`).
-- ✅ 10 individualized, segment-specific outreach messages and follow-up templates in English (`commercial/13_first_outreach_campaign.md`).
+- ✅ Commercial directory of 10 verified US small business prospects with documented federal contracts/vehicles (`commercial/20_verified_prospect_shortlist.md`).
+- ✅ Customer discovery outreach messages, follow-up sequences, and interview guide (`commercial/21_customer_discovery_outreach.md`).
 - ✅ Objection handling guides for security, accuracy, and pricing.
 - ✅ Complete self-service acquisition funnel (Landing Page, Demo, Signup, Upload, Quotas, Pricing, Checkout).
 - ✅ Automated transactional emails with persistent idempotency and mock protection.
@@ -92,9 +100,9 @@ To transition from local readiness to live commercial outreach in the United Sta
 ### What is Gated (Requires Explicit Authorization):
 - 🛑 **Deploying the application to Vercel or cloud servers.**
 - 🛑 **Applying migrations to the remote Supabase database (`ghqbqzljfpkjdrnuyddo`).**
-- 🛑 **Purchasing domains or spending from the R\$ 500 budget.**
+- 🛑 **Purchasing domains or spending from the commercial budget.**
 - 🛑 **Submitting Paddle KYC or toggling `PADDLE_ENV=production`.**
-- 🛑 **Dispatching real emails or messages to the 10 prospects.**
+- 🛑 **Dispatching real emails or messages to the 10 prospects (zero messages sent to date).**
 
 ---
 
@@ -109,6 +117,6 @@ Once the project owner authorizes moving into live production:
 3. **Step 3 — Paddle Live Verification & Price IDs:**  
    Obtain Paddle Live approval and populate production `PADDLE_PRICE_*` variables.
 4. **Step 4 — Controlled Outreach Execution:**  
-   Dispatch the 10 individualized messages prepared in `commercial/13_first_outreach_campaign.md` across LinkedIn and public teaming channels.
+   Dispatch the customer discovery outreach sequences prepared in `commercial/21_customer_discovery_outreach.md` to the 10 qualified leads in `commercial/20_verified_prospect_shortlist.md`.
 5. **Step 5 — Monitor First Conversions:**  
-   Track signups, free trial usage, and conversion to the first 2 paying customers (\$29 or \$69/month) to validate willingness-to-pay.
+   Track signups, free trial usage, and conversion to the first paying customers ($29 or $69/month) to validate willingness-to-pay.
